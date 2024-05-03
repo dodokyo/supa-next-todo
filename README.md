@@ -1,3 +1,6 @@
+# Supabase, Next 시작하기
+
+## install 
 
 ```
 yarn add react-spinners@^0.13.8  
@@ -10,5 +13,4 @@ yarn add @supabase/auth-ui-shared@^0.1.8
 
 yarn add cookies-next@^4.1.1  
 ```
-
 
