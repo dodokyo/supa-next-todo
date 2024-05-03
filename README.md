@@ -14,3 +14,4 @@ yarn add @supabase/auth-ui-shared@^0.1.8
 yarn add cookies-next@^4.1.1  
 ```
 
+npx supabase gen types typescript --project-id "rirtnceyccxjlupupgxi" --schema public > types/supabase.ts
