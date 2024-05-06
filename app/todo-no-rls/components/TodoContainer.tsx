@@ -8,7 +8,12 @@ const TodoContainer = () => {
 
   return (
     <div>
-      <TodoList sharedUserFullName="test user" owerUserId="123123" />
+      <TodoList
+        sharedUserFullName="test user"
+        owerUserId="123123"
+        loading={loading}
+        todoListData={todos}
+      />
     </div>
   );
 };
