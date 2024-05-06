@@ -8,7 +8,7 @@ const TodoContainer = () => {
 
   return (
     <div>
-      <TodoList sharedUserFullName="test user" />
+      <TodoList sharedUserFullName="test user" owerUserId="123123" />
     </div>
   );
 };
