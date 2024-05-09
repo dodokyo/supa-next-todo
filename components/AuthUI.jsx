@@ -62,7 +62,7 @@ const AuthUI = () => {
           appearance={{
             theme: ThemeSupa,
           }}
-          //   onlyThirdPartyProviders
+          onlyThirdPartyProviders
           providers={["google", "github"]}
         />
       </div>
