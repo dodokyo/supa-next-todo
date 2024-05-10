@@ -51,6 +51,8 @@ export const createTodos = async (content: string) => {
       content,
     })
     .select();
+    
+  console.log(result);
 
   return result.data;
 };
