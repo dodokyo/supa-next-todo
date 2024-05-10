@@ -33,6 +33,41 @@ export type Database = {
         }
         Relationships: []
       }
+      todos_with_rls: {
+        Row: {
+          content: string | null
+          created_at: string
+          deleted_at: string | null
+          id: number
+          updated_at: string
+          user_id: string
+        }
+        Insert: {
+          content?: string | null
+          created_at?: string
+          deleted_at?: string | null
+          id?: number
+          updated_at?: string
+          user_id?: string
+        }
+        Update: {
+          content?: string | null
+          created_at?: string
+          deleted_at?: string | null
+          id?: number
+          updated_at?: string
+          user_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "todos_with_rls_user_id_fkey"
+            columns: ["user_id"]
+            isOneToOne: false
+            referencedRelation: "users"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
     }
     Views: {
       [_ in never]: never
