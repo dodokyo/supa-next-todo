@@ -6,7 +6,7 @@ import {
   updateTodos,
 } from "@/actions/todo/todo.action";
 import { Database } from "@/types/supabase";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 
 type TodoDto = Database["public"]["Tables"]["todos_no_rls"]["Row"];
 
@@ -14,7 +14,7 @@ const useTodosController = (owerUserId = "") => {
   const [loading, setLoading] = useState(true);
   const [todos, setTodos] = useState<TodoDto[]>([]);
 
-  const onGetTodos = async () => {
+  const onGetTodos = useCallback(async () => {
     setLoading(true);
     try {
       const resultTodos = await getTodosByUserId(owerUserId);
@@ -24,11 +24,11 @@ const useTodosController = (owerUserId = "") => {
     } finally {
       setLoading(false);
     }
-  };
+  }, [owerUserId]);
 
   useEffect(() => {
     onGetTodos();
-  }, []);
+  }, [onGetTodos]);
 
   // 비어있는 todo 생성
   const onCreateEmptyTodos = async () => {
