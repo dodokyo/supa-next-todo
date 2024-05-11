@@ -4,6 +4,7 @@ import { IoShareSocialOutline } from "react-icons/io5";
 import { useCopyToClipboard } from "usehooks-ts";
 import { IoSearchOutline } from "react-icons/io5";
 import TodoListItem from "./TodoListItem";
+import TodoListItemReadonly from "./TodoListItemReadonly";
 
 const TodoList = ({
   sharedUserFullName = "",
@@ -99,6 +100,9 @@ const TodoList = ({
         {todoListData?.length >= 1 ? (
           <ul className="flex flex-col gap-6">
             {(todoListData ?? []).map((todo) => {
+              if (isReadOnly) {
+                return <TodoListItemReadonly key={todo?.id} todo={todo} />;
+              }
               return (
                 <TodoListItem
                   key={todo?.id}
