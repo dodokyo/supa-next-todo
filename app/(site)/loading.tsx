@@ -2,7 +2,7 @@
 import React from "react";
 import { DotLoader } from "react-spinners";
 
-const Error = () => {
+const Loading = () => {
   return (
     <div className=" flex flex-col items-center mt-12">
       <div>
@@ -13,4 +13,4 @@ const Error = () => {
   );
 };
 
-export default Error;
+export default Loading;
