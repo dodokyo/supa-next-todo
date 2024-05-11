@@ -20,7 +20,7 @@ const TodoList = ({
   const [copiedText, copy] = useCopyToClipboard();
 
   const handleCopy = () => {
-    const shareLink = `${"todoList공유할 링크"}/share/${owerUserId}`;
+    const shareLink = `${process.env.NEXT_PUBLIC_AUTH_REDIRECT_TO_HOME}/share/${owerUserId}`;
     copy(shareLink)
       .then(() => {
         window.alert(`공유링크 복사완료! \n${shareLink}`);
