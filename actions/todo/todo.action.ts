@@ -5,6 +5,7 @@ import { createServerSideClient } from "@/lib/supabase";
 // todoList 가져오기
 export const getTodos = async () => {
   const supabase = await createServerSideClient();
+
   const result = await supabase
     .from("todos_with_rls")
     .select("*")
@@ -24,6 +25,18 @@ export const getTodosById = async (id: number) => {
     .select("*")
     .is("deleted_at", null)
     .eq("id", id);
+
+  return result.data;
+};
+
+// todoList 가져오기 + by UserId
+export const getTodosByUserId = async (userId: string) => {
+  const supabase = await createServerSideClient(true);
+  const result = await supabase
+    .from("todos_with_rls")
+    .select("*")
+    .is("deleted_at", null)
+    .eq("user_id", userId);
 
   return result.data;
 };
@@ -51,7 +64,7 @@ export const createTodos = async (content: string) => {
       content,
     })
     .select();
-    
+
   console.log(result);
 
   return result.data;

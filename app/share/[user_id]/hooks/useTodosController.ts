@@ -10,14 +10,15 @@ import { useState, useEffect } from "react";
 
 type TodoDto = Database["public"]["Tables"]["todos_no_rls"]["Row"];
 
-const useTodosController = (owerUserId = "") => {
+const useTodosController = (userId = "") => {
   const [loading, setLoading] = useState(true);
   const [todos, setTodos] = useState<TodoDto[]>([]);
 
   const onGetTodos = async () => {
     setLoading(true);
     try {
-      const resultTodos = await getTodosByUserId(owerUserId);
+      const resultTodos = await getTodosByUserId(userId);
+
       if (resultTodos) setTodos(resultTodos);
     } catch (error) {
       console.error(error);
