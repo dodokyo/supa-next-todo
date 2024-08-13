@@ -160,3 +160,15 @@ npx supabase gen types typescript --project-id "rirtnceyccxjlupupgxi" --schema p
 2.Auth UI  
 3.Callback 처리 (PKCE)  
 
+--- 
+
+## .env.sample  
+
+- NEXT_PUBLIC_AUTH_REDIRECT_TO_HOME 변수는 PKCE Flow을 위해서 지정된 변수입니다.  
+
+```
+NEXT_PUBLIC_SUPABASE_URL=https://YOUT_URL.supabase.co
+NEXT_PUBLIC_SUPABASE_ANON_KEY=YOUR_ANONKEY
+NEXT_PUBLIC_AUTH_REDIRECT_TO_HOME=https://YOUT_DOMAIN.vercel.app/auth/callback?next=/
+NEXT_PUBLIC_AUTH_REDIRECT_TO=https://YOUT_DOMAIN.vercel.app
+```
